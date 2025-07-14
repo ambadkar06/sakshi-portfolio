@@ -47,7 +47,7 @@ function App() {
   
   useEffect(() => {
     // Initialize EmailJS with your public key
-    emailjs.init('CWRH3rmCTJn0J74Qr');
+    emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'CWRH3rmCTJn0J74Qr');
   }, [])
 
   useEffect(() => {
@@ -707,8 +707,8 @@ function App() {
                   
                   // Send email using EmailJS
                   const response = await emailjs.send(
-                    'service_3b1sese', // Your EmailJS service ID
-                    'template_uhnvgo3', // Your EmailJS template ID
+                    import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_3b1sese', // Your EmailJS service ID
+                    import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_uhnvgo3', // Your EmailJS template ID
                     templateParams
                   );
                   
